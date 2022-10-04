@@ -10,6 +10,14 @@ function Square(props){
     );
 }
 
+function CheckClick(a) {
+    if (a === 'X' || a === 'O') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 class Board extends React.Component {
     renderSquare(i) {
@@ -99,6 +107,8 @@ class Game extends React.Component {
         let status;
         if(winner){
             status = 'Winner is ' + winner;
+        } else if(current.squares.every(CheckClick)) {
+            status = 'The Game is a Tie';
         } else {
             status = 'Next player is ' + (this.state.xisnext ? 'X' : 'O');
         }
