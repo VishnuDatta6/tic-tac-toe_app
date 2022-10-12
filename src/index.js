@@ -22,7 +22,7 @@ function CheckClick(a) {
 class Board extends React.Component {
     renderSquare(i) {
         return (
-          <Square 
+          <Square
             value={this.props.squares[i]} 
             onClick={()=> this.props.onClick(i)}
             />
@@ -32,19 +32,19 @@ class Board extends React.Component {
         return (
             <div>
                 <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
+                    <div id="0">{this.renderSquare(0)}</div>
+                    <div id="1">{this.renderSquare(1)}</div>
+                    <div id="2">{this.renderSquare(2)}</div>
                 </div>
                 <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
+                    <div id="3">{this.renderSquare(3)}</div>
+                    <div id="4">{this.renderSquare(4)}</div>
+                    <div id="5">{this.renderSquare(5)}</div>
                 </div>
                 <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
+                    <div id="6">{this.renderSquare(6)}</div>
+                    <div id="7">{this.renderSquare(7)}</div>
+                    <div id="8">{this.renderSquare(8)}</div>
                 </div>
             </div>
         );
@@ -106,7 +106,10 @@ class Game extends React.Component {
 
         let status;
         if(winner){
-            status = 'Winner is ' + winner;
+            status = 'Winner is ' + winner[0];
+            document.getElementById(`${winner[1][0]}`).style.background = "black";
+            document.getElementById(`${winner[1][1]}`).style.background = "black";
+            document.getElementById(`${winner[1][2]}`).style.background = "black";
         } else if(current.squares.every(CheckClick)) {
             status = 'The Game is a Tie';
         } else {
@@ -147,7 +150,7 @@ function calculateWinner(squares) {
     for (let i=0; i<lines.length; i++) {
         const [a,b,c] = lines[i];
         if (squares[a] && squares[a]===squares[b] && squares[a]===squares[c]) {
-            return squares[a];
+            return [squares[a],[a,b,c]];
         }
     }
     return null;

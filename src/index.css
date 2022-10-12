@@ -8,10 +8,10 @@ ol,ul {
     list-style-type: none;
 }
 
-.board-row:after {
+.board-row {
    clear: both;
    content: "";
-   display: table;
+   display:inline-flex;
 }
 
 .status {
@@ -32,9 +32,9 @@ ol,ul {
     font-weight: bold;
     line-height: 4px;
     padding: 0px;
-    height: 140px;
+    height: 120px;
     text-align: center;
-    width: 140px;
+    width: 120px;
     margin-left: 2px;
 }
 
@@ -53,6 +53,7 @@ ol,ul {
 
 .game-info {
     margin-left: 20%;
+    margin-right: 20%;
     padding-top: 100px;
     display: flex;
     flex-direction: column;
