@@ -1,6 +1,7 @@
 body {
     font: 14px "Centuri Gothic", Futura, sans-serif;
     margin: 20px;
+    background-image: url("/src/criss-cross.webp");
 }
 
 ol,ul {
@@ -63,7 +64,7 @@ ol,ul {
 .header {
     color: rgb(121, 4, 4);
     font-size : 40px;
-    padding-left: 90px;
+    padding-left: 65px;
     text-decoration: underline;
 }
 
