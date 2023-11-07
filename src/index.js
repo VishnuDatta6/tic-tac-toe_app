@@ -30,7 +30,7 @@ class Board extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className='board-container'>
                 <div className="board-row">
                     <div id="0">{this.renderSquare(0)}</div>
                     <div id="1">{this.renderSquare(1)}</div>
@@ -99,7 +99,7 @@ class Game extends React.Component {
             'Go to game start';
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button className='status-button' onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
         });
